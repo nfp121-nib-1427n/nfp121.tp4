@@ -11,7 +11,13 @@ public class IHMQuestion2_2 extends JFrame {
     private JButton boutonC = new JButton("C");
 
     private TextArea contenu = new TextArea(30, 80);
-
+    private JButtonObserver jb1;
+    private JButtonObserver jb2;
+    private JButtonObserver jb3;
+    
+    private JMouseObserver jm1;
+    private JMouseObserver jm2;
+    private JMouseObserver jm3;
  
     public IHMQuestion2_2() {
         super("IHM Question2_2");
@@ -26,6 +32,26 @@ public class IHMQuestion2_2 extends JFrame {
         setLocation(150,150);pack();show();
         enHaut.setBackground(Color.magenta);
         
+        jb1 = new JButtonObserver("jb1", contenu);
+        jb2 = new JButtonObserver("jb2", contenu);
+        jb3 = new JButtonObserver("jb3", contenu);
+        
+        boutonA.addActionListener(jb1);
+        boutonA.addActionListener(jb2);
+        boutonA.addActionListener(jb3);
+        
+        boutonB.addActionListener(jb1);
+        boutonB.addActionListener(jb2);
+        
+        boutonC.addActionListener(jb1);
+        
+        jm1 = new JMouseObserver("jm1", contenu);
+        jm2 = new JMouseObserver("jm2", contenu);
+        jm3 = new JMouseObserver("jm3", contenu);
+
+        boutonA.addMouseListener(jm1);
+        boutonB.addMouseListener(jm2);
+        boutonC.addMouseListener(jm3);
 
         // à compléter à l'identique de la question 2_1, (du copier/coller)...
         // le bouton A a 3 observateurs jbo1, jbo2 et jbo3
